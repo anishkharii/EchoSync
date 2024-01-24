@@ -1,0 +1,100 @@
+/* .form-container {
+  display: grid;
+  margin:2em;
+  height:100vh;
+  grid-template-columns: 40% 60%;
+}
+
+.form-section{
+  box-sizing: border-box;
+} */
+
+.left-section {
+  background-color: #217028;
+  height: 100%;
+  width: 100%;
+  border-radius: 8px;
+}
+
+.left-section p {
+  position: relative;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: #fff; 
+  font-size: 18px; 
+}
+
+
+.form {
+    background-color: #f1f1f1; 
+    display: inline-block;
+    padding: 3%;
+    margin: 2em;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
+    transition: 0.2s;
+  }
+  .form:hover{
+    transform: scale(1.01);
+  }
+  
+  .btn {
+    padding: 2% 8%;
+    font-weight: bold;
+    font-size: large;/* Blue background */
+    outline: none;
+    border: 3px solid ; /* Darker blue border */
+    border-radius: 5px;
+    cursor: pointer;
+    transition: 0.2s;
+    margin: 3%;
+    color: #fff; /* White text */
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  .sign-up-btn{
+    background-color: #36c742;
+    border-color: #217028;
+  }
+  .sign-up-btn:hover{
+    background-color: #217028;
+    border-color: #36c742;
+  }
+
+  .log-in-btn{
+    border-color: #2980b9;
+    background-color: #3498db;
+  }
+  .log-in-btn:hover{
+    background-color: #2980b9;
+    border: 3px solid #3498db; 
+  }
+  
+  .btn:hover {
+    
+    color: #fff;
+    transform: scale(1.05);
+  }
+
+  a{
+    font-size: 15px;
+    color: #2980b9;
+    text-decoration: none;
+    border-bottom: 1px solid #2980b9;
+    transition: .2s;
+  }
+  a:hover{
+    color:#1f5274;
+    font-size: 17px;
+    border-bottom: 3px dotted #1f5274;
+  }
+  
+
+  @media screen and(min-width: 280px) and (max-width: 600px) {
+    .left-section{
+      background-color: #1f5274;
+    }
+    
+  }
