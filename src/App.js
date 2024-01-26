@@ -1,8 +1,8 @@
 import React from 'react';
 import './App.css';
-import LogInForm from './logInForm';
+import LogInForm from './LogInForm/logInForm.js';
 import {BrowserRouter as Router,Route,Routes} from 'react-router-dom'
-import SignUpForm from './signUpform'
+import SignUpForm from './SignUpForm/signUpform'
 import Home from './home.js'
 function App() {
   return(

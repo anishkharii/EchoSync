@@ -49,7 +49,7 @@ const Input = (props) => {
           placeholder={props.placeholder}
           name={props.name}
           onFocus={handleFocus}
-          onBlur={handleFocus}
+          onBlur={handleFocus && props.onBlur}
           onChange={props.onChange}
           autoFocus={props.autoFocus}
           onInvalid={e=> e.target.setCustomValidity(validity)}
@@ -57,7 +57,7 @@ const Input = (props) => {
           required={props.required}
           autoComplete={props.autoComplete}
           autoCorrect={props.autoCorrect}
-        />
+           />
 
         <div className="icon">
           {props.type === "password" && (
