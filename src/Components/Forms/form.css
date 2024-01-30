@@ -1,4 +1,4 @@
-.login-container , .signup-container{
+.form-container{
   display: grid;
   grid-template-columns: 2fr 3fr;
   justify-content: center;
@@ -27,7 +27,7 @@
   margin: 0;
   overflow: hidden;
 }
-.left-container p{
+.left-container .form-text{
   position: absolute;
   top: 50%;
   left: 50%;
@@ -55,7 +55,7 @@
 }
 
 
-.login-form .signup-form{
+.login-form .signup-form, .forgot-password{
   box-sizing: border-box;
   padding: 5px;
   text-align: center;
@@ -68,12 +68,11 @@
   height:40%;
   margin:0 auto;
   margin-bottom: 15px;
-  border: 1px solid #ddd;
+  /* border:  */
   padding: 0 0  0 8px;
   border-radius: 5px;
 }
 .input-container:hover{
-  border-color: #3498db;
   box-shadow: 0 0 5px rgba(52, 152, 219, 0.5);
 }
 
@@ -89,7 +88,8 @@
 .input-container input::placeholder{
   font-size: 20px;
 }
-.password-field{
+
+.email-field , .password-field{
   display: flex;
 }
 
@@ -116,9 +116,21 @@
   background-color: #2980b9;
 }
 
-.btn:hover {
+.log-in:hover {
   background-color: #2980b9;
 }
+
+.sign-up-btn{
+  background-color: #2dbe32;
+}
+.sign-up-btn:hover{
+  background-color: #26912a;
+}
+.sign-up-btn:disabled{
+  cursor: not-allowed;
+  background-color: #989696;
+}
+
 
 a {
   display: block;
@@ -157,6 +169,19 @@ a:hover {
     l37-2 1.5s  infinite linear; 
 }
 
+.email-loader svg{
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0%{
+    transform: rotate(0deg);
+  }
+  100%{
+    transform: rotate(360deg);
+  }
+}
+
 .warning{
   border:2px solid #9a2a2a;
 }
@@ -164,11 +189,28 @@ a:hover {
   border:2px solid #167d1a;
 }
 h4{
+  display:flex;
   font-size: 0.7em;
   color:rgb(219, 53, 53);
   margin:10px;
-  transition: ease .2s;
 }
+
+.fade-in {
+  max-height: 100px;
+  overflow: hidden;
+  transition: max-height 0.1s ease-in-out;
+}
+
+.hidden {
+  max-height: 0;
+  margin-top: 0;
+  margin-bottom: 0;
+  padding-top: 0;
+  padding-bottom: 0;
+}
+
+
+
 @keyframes l37-1 {
   0%,
   20% {box-shadow:30px 0 0 3px, 10px 0 0 3px, -10px 0 0 3px,-30px 0 0 3px}
@@ -183,19 +225,19 @@ h4{
 
 
 @media screen and (max-width:1000px){
-  .login-container, .signup-container{
+  .form-container{
     width: 75%;
   }
 }
 
 @media screen and (max-width:750px) {
-  .login-container ,.signup-container{
+  .form-container{
     width:85%;
   }
 }
 
 @media screen and (max-width:650px) {
-  .login-container,.signup-container{
+  .form-container{
     grid-template-columns: 1fr;
     grid-template-rows: 75px 1fr;
     gap:15px;

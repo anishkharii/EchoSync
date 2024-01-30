@@ -1,7 +1,25 @@
 main{
-    background-color: rgb(255, 242, 224);
+    background-color: rgb(220, 220, 220);
     text-align: center;
 }
 h1{
     font-size: larger;
+}
+
+.log-out-btn{
+    background-color: aliceblue;
+    padding: 10px 0;
+    color: #fff;
+    font-size: larger;
+    width: 10%;
+    margin: auto;
+    border: none;
+    border-radius: 5px;
+    background-color: rgb(175, 39, 39);
+    outline: none;
+    cursor: pointer;
+    transition: .2s;
+}
+.log-out-btn:hover{
+    background-color: rgb(224, 24, 24);
 }

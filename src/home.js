@@ -4,11 +4,13 @@ import './home.css';
 
 const Home = ()=>{
     const [user,setUser] = useState('');
+    const [email, setEmail] = useState('');
     const navigate = useNavigate();
     useEffect(()=>{
         const storedUser = localStorage.getItem('user');
         if(storedUser){
-            setUser(JSON.parse(storedUser));
+            setUser(JSON.parse(storedUser).username);
+            setEmail(JSON.parse(storedUser).email);
         }
         else{
             navigate('/login');
@@ -23,7 +25,8 @@ const Home = ()=>{
     return(
         <div className='main'>
             <h1>Welcome, {user}!</h1>
-            <button className='btn' onClick={handleLogout}>Log Out</button>
+            <h3>{email}</h3>
+            <button className='log-out-btn' onClick={handleLogout}>Log Out</button>
         </div>
     )
 }
