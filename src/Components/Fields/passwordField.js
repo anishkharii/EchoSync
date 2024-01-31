@@ -1,14 +1,8 @@
 // PasswordField.js
 import React, { useState } from "react";
 import { Eye, EyeOff, LockKeyhole } from "lucide-react";
+import { activeStyle, defaultStyle } from "./fieldStyle";
 
-const defaultStyle = {
-  border: "1px solid #ddd" 
-}
-const activeStyle = {
-  border: "1px solid #3498db",
-  boxShadow: "0 0 5px rgba(52, 152, 219, 0.5)"
-}
 
 const PasswordField = (props) => {
   const [showPassword, setShowPassword] = useState(false);
@@ -32,6 +26,7 @@ const PasswordField = (props) => {
         name={props.name}
         placeholder={props.placeholder}
         required={props.required}
+        autoFocus={props.autoFocus}
         autoComplete="false"
       />
       {!showPassword ? (

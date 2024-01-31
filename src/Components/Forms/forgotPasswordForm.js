@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import PasswordField from "../Fields/passwordField";
-import { Loader, Mail } from "lucide-react";
 import { useNavigate } from "react-router-dom";
+import EmailField from "../Fields/emailField";
 
 const ForgotPasswordForm = () => {
     const navigate = useNavigate();
@@ -82,7 +82,7 @@ const ForgotPasswordForm = () => {
 
     const handlePasswordSubmit = async(e)=>{
       e.preventDefault();
-      if(!isPasswordMatch) return;
+      if(!isPasswordMatch || !isPasswordValid) return;
       setLoading(true);
       try {
         const response = await fetch(
@@ -115,17 +115,16 @@ const ForgotPasswordForm = () => {
       <div className="forgot-password">
         <h1>FORGOT PASSWORD</h1>
           <form style={{display:`${!isUserExist? 'block':'none'}`}} onSubmit={handleEmailSubmit}>
-            <div className="input-container email-field">
-              <Mail style={{ width: "25px", height: "25px" }} />
-              <input
+              <EmailField
+                className={isUserExist===false? 'warning':""}
                 type="email"
                 onChange={(e) => handleChange(e)}
                 placeholder="Enter Email"
                 name="email"
+                isEmailLoading={isMailLoading}
                 required
+                autoFocus={!isUserExist? true:false}
               />
-              <div className="email-loader">{isMailLoading && <Loader />}</div>
-            </div>
 
             <h4>{isUserExist === false ? "User does not Exists." : ""}</h4>
             <button className="btn" type="submit">
@@ -138,6 +137,7 @@ const ForgotPasswordForm = () => {
               onChange={(e) => handleChange(e)}
               required={true}
               name="password"
+              autoFocus={isUserExist? true:false}
             />
             <PasswordField
               placeholder="Enter Password Again"

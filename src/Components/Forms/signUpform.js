@@ -1,7 +1,6 @@
 import React, { useState, useEffect, useRef } from "react";
-import { CircleUserRound, Loader, Mail, User } from "lucide-react";
+import { CircleUserRound} from "lucide-react";
 import PasswordField from "../Fields/passwordField";
-import "./form.css";
 import { useNavigate } from "react-router-dom";
 import TextField from "../Fields/textField";
 import EmailField from "../Fields/emailField";
@@ -44,7 +43,6 @@ const SignUpForm = () => {
       ...prevFormData,
       [name]: value,
     }));
-    console.log(formData);
     setIsEmailValid(null);
     if (name === "password") {
       setIsPasswordValid(false);
@@ -112,7 +110,6 @@ const SignUpForm = () => {
       if (isUserExist || !isPasswordMatch || !isPasswordValid) {
         return;
       }
-
       const response = await fetch(
         "https://mobiledbserver.onrender.com/api/users",
         {
@@ -175,9 +172,7 @@ const SignUpForm = () => {
             />
 
             <EmailField
-              className={((isUserExist || isEmailValid === false) &&
-              formData.email &&
-              "warning") && (isUserExist === false && isValidEmail(formData.email) && "success")}
+              className={`${(isUserExist || isEmailValid === false) && formData.email? "warning":""} ${isUserExist === false && isValidEmail(formData.email)? "success":""}`}
               title="Enter Email"
               onChange={(e) => handleChange(e)}
               name="email"
@@ -185,12 +180,9 @@ const SignUpForm = () => {
               onBlur={checkEmail}
               autoComplete="false"
               required={true}
+              isEmailLoading={isEmailLoading}
             />
-            {isEmailLoading && (
-              <div className="email-loader">
-                <Loader />
-              </div>
-            )}
+            
 
           <PasswordField
             label="Password"

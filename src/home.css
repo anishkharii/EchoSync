@@ -1,6 +1,7 @@
 main{
     background-color: rgb(220, 220, 220);
     text-align: center;
+    display: flex;
 }
 h1{
     font-size: larger;

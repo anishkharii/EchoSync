@@ -1,9 +1,5 @@
 import React, { useState } from "react";
-import {
-  CircleUserRound,
-  Mail,
-} from "lucide-react";
-import "./form.css";
+import { CircleUserRound } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 import PasswordField from "../Fields/passwordField";
 import EmailField from "../Fields/emailField";
@@ -45,6 +41,7 @@ const LogInForm = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     setLoading(true);
+    if(!isEmailValid) return;
 
     try {
       const response = await fetch(

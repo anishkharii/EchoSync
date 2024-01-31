@@ -1,13 +1,7 @@
 import { User } from "lucide-react";
 import React, { useState } from "react";
+import { activeStyle, defaultStyle } from "./fieldStyle";
 
-const defaultStyle = {
-    border: "1px solid #ddd" 
-  }
-  const activeStyle = {
-    border: "1px solid #3498db",
-    boxShadow: "0 0 5px rgba(52, 152, 219, 0.5)"
-  }
 
 const TextField = (props) => {
     const [inputStyle, setInputStyle] = useState(undefined);
@@ -23,6 +17,7 @@ const TextField = (props) => {
           required={props.required}
           autoComplete={props.autoComplete}
           autoFocus={props.autoFocus}
+          onChange={props.onChange}
           onFocus={()=>{
             setInputStyle(activeStyle)
             }}
