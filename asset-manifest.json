@@ -1,13 +1,13 @@
 {
   "files": {
-    "main.css": "/simpleReactApp/static/css/main.0f666632.css",
-    "main.js": "/simpleReactApp/static/js/main.a91febf0.js",
-    "index.html": "/simpleReactApp/index.html",
-    "main.0f666632.css.map": "/simpleReactApp/static/css/main.0f666632.css.map",
-    "main.a91febf0.js.map": "/simpleReactApp/static/js/main.a91febf0.js.map"
+    "main.css": "/SimpleReactApp/static/css/main.0f666632.css",
+    "main.js": "/SimpleReactApp/static/js/main.f8a88510.js",
+    "index.html": "/SimpleReactApp/index.html",
+    "main.0f666632.css.map": "/SimpleReactApp/static/css/main.0f666632.css.map",
+    "main.f8a88510.js.map": "/SimpleReactApp/static/js/main.f8a88510.js.map"
   },
   "entrypoints": [
     "static/css/main.0f666632.css",
-    "static/js/main.a91febf0.js"
+    "static/js/main.f8a88510.js"
   ]
 }
