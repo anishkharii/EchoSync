@@ -8,7 +8,7 @@ const Form = (props) => {
     <>
       <div className="form-container">
         <div className="left-container">
-          <img src="../images/logInPageImage.jpeg" alt="login Page" />
+          <img src="../images/FormPageImage.webp" alt="Form Img" />
           <div className="form-text">
             <h2>Chat</h2>
             <p>LIKE PRO</p>
