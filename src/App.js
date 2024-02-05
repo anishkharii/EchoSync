@@ -6,12 +6,13 @@ import Home from './home.js'
 function App() {
   return(
     <div className='app'>
-    <Router>
+    <Router >
       <Routes>
-        <Route path='/add-user' element={<Form type='sign-up'/>} />
-        <Route path='/login' element={<Form type='login'/>} />
-        <Route path='/forgot-password' element={<Form type='forgot-password'/>}/>
-        <Route path='/' Component={Home} />
+        <Route exact path={'/add-user'} element={<Form type='sign-up'/>} />
+        <Route exact path='/login' element={<Form type='login'/>} />
+        <Route exact path='/forgot-password' element={<Form type='forgot-password'/>}/>
+        <Route exact path='/' Component={Home} />
+        
       </Routes>
     </Router>
     </div>

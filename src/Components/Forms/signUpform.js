@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from "react";
 import { CircleUserRound} from "lucide-react";
 import PasswordField from "../Fields/passwordField";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import TextField from "../Fields/textField";
 import EmailField from "../Fields/emailField";
 
@@ -230,9 +230,9 @@ const SignUpForm = () => {
             </button>
           )}
         </form>
-        <a href="/login" title="Log In ">
+        <Link to="/login" className='link' title="Log In ">
           Already User? Log In
-        </a>
+        </Link>
       </div>
     </>
   );

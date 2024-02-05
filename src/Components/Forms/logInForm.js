@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { CircleUserRound } from "lucide-react";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import PasswordField from "../Fields/passwordField";
 import EmailField from "../Fields/emailField";
 
@@ -115,9 +115,9 @@ const LogInForm = () => {
             required={true}
           />
 
-          <a href="/forgot-password" title="Change Password">
+          <Link to="/forgot-password" className='link' title="Change Password">
             Forgot Password
-          </a>
+          </Link>
 
           <h4>{isWrongCredentials && "Email or Password is Wrong."}</h4>
           <h4>
@@ -127,9 +127,9 @@ const LogInForm = () => {
             SIGN IN
           </button>
         </form>
-        <a href="/add-user" title="Log In ">
+        <Link to="/add-user" className='link' title="Create Account ">
           Create Account
-        </a>
+        </Link>
       </div>
     </>
   );
