@@ -156,7 +156,7 @@ const SignUpForm = () => {
 
       <div className="signup-form">
         <CircleUserRound
-          style={{ width: "50px", height: "50px", margin: "10px" }}
+          style={{ width: "50px", height: "50px", margin: "10px", color:"#140149" }}
         />
         <form onSubmit={handleSubmit}>
 
@@ -230,7 +230,7 @@ const SignUpForm = () => {
             </button>
           )}
         </form>
-        <Link to="/login" className='link' title="Log In ">
+        <Link to="/login" className='link form-action-btn' title="Log In ">
           Already User? Log In
         </Link>
       </div>

@@ -1,18 +1,25 @@
-main{
-    background-color: rgb(220, 220, 220);
+.main{
     text-align: center;
-    display: flex;
+    color: #0f0d26;
 }
 h1{
-    font-size: larger;
+    font-size: largest;
 }
 
-.log-out-btn{
+.home-content{
+
+}
+
+.home-content h1{
+    display: inline-block;
+    border-bottom: 8px dotted #fff;
+}
+.logout-btn{
     background-color: aliceblue;
-    padding: 10px 0;
+    padding: 10px 15px;
     color: #fff;
     font-size: larger;
-    width: 10%;
+
     margin: auto;
     border: none;
     border-radius: 5px;
@@ -21,6 +28,7 @@ h1{
     cursor: pointer;
     transition: .2s;
 }
+
 .log-out-btn:hover{
     background-color: rgb(224, 24, 24);
 }

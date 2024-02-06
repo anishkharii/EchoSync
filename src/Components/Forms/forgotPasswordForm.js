@@ -113,7 +113,7 @@ const ForgotPasswordForm = () => {
         </div>
       )}
       <div className="forgot-password">
-        <h1>FORGOT PASSWORD</h1>
+        <h2>FORGOT PASSWORD</h2>
           <form style={{display:`${!isUserExist? 'block':'none'}`}} onSubmit={handleEmailSubmit}>
               <EmailField
                 className={isUserExist===false? 'warning':""}
