@@ -3,6 +3,7 @@ import { CircleUserRound } from "lucide-react";
 import { Link, useNavigate } from "react-router-dom";
 import PasswordField from "../Fields/passwordField";
 import EmailField from "../Fields/emailField";
+import { Helmet } from "react-helmet";
 
 const LogInForm = () => {
   const [formData, setFormData] = useState({
@@ -83,7 +84,9 @@ const LogInForm = () => {
           <div className="loader"></div>
         </div>
       )}
-
+        <Helmet>
+          <title>Log In | Echo Sync</title>
+        </Helmet>
       <div className="login-form">
         <CircleUserRound
           style={{ width: "50px", height: "50px", margin: "10px", color:"#140149"}}

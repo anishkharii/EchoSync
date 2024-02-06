@@ -4,6 +4,7 @@ import PasswordField from "../Fields/passwordField";
 import { Link, useNavigate } from "react-router-dom";
 import TextField from "../Fields/textField";
 import EmailField from "../Fields/emailField";
+import { Helmet } from "react-helmet";
 
 const SignUpForm = () => {
   const prevCheckedEmail = useRef(null);
@@ -153,7 +154,9 @@ const SignUpForm = () => {
           <div className="loader"></div>
         </div>
       )}
-
+        <Helmet>
+          <title>Sign Up | Echo Sync</title>
+        </Helmet>
       <div className="signup-form">
         <CircleUserRound
           style={{ width: "50px", height: "50px", margin: "10px", color:"#140149" }}

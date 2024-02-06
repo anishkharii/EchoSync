@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import PasswordField from "../Fields/passwordField";
 import { useNavigate } from "react-router-dom";
 import EmailField from "../Fields/emailField";
+import {Helmet} from 'react-helmet'
 
 const ForgotPasswordForm = () => {
     const navigate = useNavigate();
@@ -112,6 +113,9 @@ const ForgotPasswordForm = () => {
           <div className="loader"></div>
         </div>
       )}
+      <Helmet>
+        <title>Forgot Password</title>
+      </Helmet>
       <div className="forgot-password">
         <h2>FORGOT PASSWORD</h2>
           <form style={{display:`${!isUserExist? 'block':'none'}`}} onSubmit={handleEmailSubmit}>
