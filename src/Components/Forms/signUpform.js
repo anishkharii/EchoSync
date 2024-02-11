@@ -6,6 +6,7 @@ import TextField from "../Fields/textField";
 import EmailField from "../Fields/emailField";
 import { Helmet } from "react-helmet";
 
+
 const SignUpForm = () => {
   const prevCheckedEmail = useRef(null);
 
@@ -13,7 +14,7 @@ const SignUpForm = () => {
     username: "",
     email: "",
     password: "",
-    confirmPassword: "",
+    confirmPassword: "", 
   });
 
   const [isPasswordMatch, setIsPasswordMatch] = useState(false);
@@ -78,7 +79,7 @@ const SignUpForm = () => {
       setIsEmailValid(null);
       if (currentEmail !== prevCheckedEmail.current) {
         const response = await fetch(
-          "https://mobiledbserver.onrender.com/api/users/find",
+        `${process.env.REACT_APP_BACKEND_URL}/api/users/findUser`,
           {
             method: "POST",
             headers: {
@@ -112,7 +113,7 @@ const SignUpForm = () => {
         return;
       }
       const response = await fetch(
-        "https://mobiledbserver.onrender.com/api/users",
+        `${process.env.REACT_APP_BACKEND_URL}/api/user/signup`,
         {
           method: "POST",
           headers: {
@@ -125,11 +126,11 @@ const SignUpForm = () => {
           }),
         }
       );
-
+      const token = await response.json().token;
       if (response.status === 201) {
         localStorage.setItem(
-          "user",
-          JSON.stringify({ username: formData.username, email: formData.email })
+          "token",
+          token
         );
         navigate("/");
       } else {
@@ -181,7 +182,7 @@ const SignUpForm = () => {
               name="email"
               placeholder="Email"
               onBlur={checkEmail}
-              autoComplete="false"
+              autoComplete='off'
               required={true}
               isEmailLoading={isEmailLoading}
             />

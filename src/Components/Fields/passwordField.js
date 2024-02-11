@@ -26,6 +26,7 @@ const PasswordField = (props) => {
         name={props.name}
         placeholder={props.placeholder}
         required={props.required}
+        title={props.title}
         autoFocus={props.autoFocus}
         autoComplete="false"
       />

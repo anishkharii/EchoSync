@@ -5,6 +5,7 @@ import PasswordField from "../Fields/passwordField";
 import EmailField from "../Fields/emailField";
 import { Helmet } from "react-helmet";
 
+
 const LogInForm = () => {
   const [formData, setFormData] = useState({
     email: "",
@@ -46,7 +47,7 @@ const LogInForm = () => {
 
     try {
       const response = await fetch(
-        "https://mobiledbserver.onrender.com/api/users/findAndVerify",
+        `${process.env.REACT_APP_BACKEND_URL}/api/user/login`,
         {
           method: "POST",
           headers: { "Content-Type": "application/json" },
@@ -58,12 +59,10 @@ const LogInForm = () => {
       );
 
       if (response.status === 200) {
+        const responseData = await response.json();
         localStorage.setItem(
-          "user",
-          JSON.stringify({
-            username: formData.username,
-            email: formData.email,
-          })
+          "token",
+          responseData.token
         );
         navigate("/");
       }
@@ -72,6 +71,7 @@ const LogInForm = () => {
       }
     } catch (error) {
       alert("Backend Error. Please try again");
+      console.log(error);
     } finally {
       setLoading(false);
     }
@@ -105,7 +105,7 @@ const LogInForm = () => {
                 setIsEmailValid(null);
               }}
               placeholder="Email"
-              autoComplete="off"
+              autoComplete='off'
               required={true}
               autoFocus
             />
@@ -113,6 +113,7 @@ const LogInForm = () => {
           <PasswordField
             name="password"
             placeholder="Enter Password"
+            title="Enter Password"
             onChange={(e) => handleChange(e)}
             label="Enter Password"
             required={true}

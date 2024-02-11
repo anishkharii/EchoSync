@@ -52,7 +52,7 @@ const ForgotPasswordForm = () => {
       setIsMailLoading(true);
       try{
         const response = await fetch(
-          "https://mobiledbserver.onrender.com/api/users/find",
+          `${process.env.REACT_APP_BACKEND_URL}/api/users/findUser`,
           {
             method: "POST",
             headers: { "Content-Type": "application/json" },
@@ -87,8 +87,8 @@ const ForgotPasswordForm = () => {
       setLoading(true);
       try {
         const response = await fetch(
-          "https://mobiledbserver.onrender.com/api/users/forgot-password",{
-            method: "POST",
+          `${process.env.REACT_APP_BACKEND_URL}/api/user/forgot-password`,{
+            method: "PATCH",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify({
               email: formData.email,
