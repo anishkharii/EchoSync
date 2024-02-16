@@ -7,6 +7,9 @@ import { Link } from "react-router-dom";
 const Form = (props) => {
   return (
     <>
+
+      <div className="form-background">
+      </div>
       <div className="form-container">
         <div className="left-container">
           <div className="form-text">

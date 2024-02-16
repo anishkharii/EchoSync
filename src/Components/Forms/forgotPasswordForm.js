@@ -29,13 +29,13 @@ const ForgotPasswordForm = () => {
       }
     },[formData]);
 
-    const checkPasswordValid= (password) =>{
+    const checkPasswordValid = (password) => {
       if (password.length < 8) {
         return false;
       }
-      const alphanumericRegex = /^[a-zA-Z0-9]+$/;
-      return alphanumericRegex.test(password);
-    }
+      const regex = /^(?=.*[a-zA-Z])(?=.*[0-9])(?=.*[~!@#$%^&*()_\-+=|\\:;'"<,>.?/])[a-zA-Z0-9~!@#$%^&*()_\-+=|\\:;'"<,>.?/]+$/;
+      return regex.test(password);
+    };
 
     const handleChange = (e)=>{
         setFormData(prevFormData=>({
@@ -57,7 +57,7 @@ const ForgotPasswordForm = () => {
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify({
-              email: formData.email
+              email: formData.email.toLowerCase()
             })
           }
         );
@@ -91,7 +91,7 @@ const ForgotPasswordForm = () => {
             method: "PATCH",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify({
-              email: formData.email,
+              email: formData.email.toLowerCase(),
               password: formData.password
             })
           }

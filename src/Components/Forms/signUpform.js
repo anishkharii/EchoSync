@@ -27,6 +27,11 @@ const SignUpForm = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
+
+    if(localStorage.getItem('token')){
+      navigate('/');
+    }
+
     if (!formData.email) {
       setIsEmailValid(null);
     }
@@ -38,7 +43,7 @@ const SignUpForm = () => {
     if (formData.password && checkPasswordValid(formData.password)) {
       setIsPasswordValid(true);
     }
-  }, [formData]);
+  }, [formData,navigate]);
 
   const handleChange = ({ target: { name, value } }) => {
     setFormData((prevFormData) => ({
@@ -59,9 +64,10 @@ const SignUpForm = () => {
     if (password.length < 8) {
       return false;
     }
-    const alphanumericRegex = /^[a-zA-Z0-9]+$/;
-    return alphanumericRegex.test(password);
+    const regex = /^(?=.*[a-zA-Z])(?=.*[0-9])(?=.*[~!@#$%^&*()_\-+=|\\:;'"<,>.?/])[a-zA-Z0-9~!@#$%^&*()_\-+=|\\:;'"<,>.?/]+$/;
+    return regex.test(password);
   };
+  
 
   const checkEmail = async () => {
     const currentEmail = formData.email.trim();
@@ -85,7 +91,7 @@ const SignUpForm = () => {
             headers: {
               "Content-Type": "application/json",
             },
-            body: JSON.stringify({ email: currentEmail }),
+            body: JSON.stringify({ email: currentEmail.toLowerCase() }),
           }
         );
 

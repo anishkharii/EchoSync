@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { CircleUserRound } from "lucide-react";
 import { Link, useNavigate } from "react-router-dom";
 import PasswordField from "../Fields/passwordField";
@@ -15,6 +15,12 @@ const LogInForm = () => {
   const [isEmailValid, setIsEmailValid] = useState(null);
   const [isWrongCredentials, setIsWrongCredentials] = useState(false);
   const navigate = useNavigate();
+
+  useEffect(()=>{
+    if(localStorage.getItem('token')){
+      navigate('/');
+    }
+  },[navigate])
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -52,7 +58,7 @@ const LogInForm = () => {
           method: "POST",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify({
-            email: formData.email,
+            email: formData.email.toLowerCase(),
             password: formData.password,
           }),
         }
@@ -66,7 +72,7 @@ const LogInForm = () => {
         );
         navigate("/");
       }
-      else {
+      else if(response.status===404 || response.status===401) {
         setIsWrongCredentials(true);
       }
     } catch (error) {
