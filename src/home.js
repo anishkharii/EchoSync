@@ -6,8 +6,10 @@ import '../src/Components/MainPage/header.css';
 import {
   BellRing,
   Home,
+  Mail,
   MessageSquare,
   Search,
+  CircleUserIcon,
   User,
 } from "lucide-react";
 
@@ -17,8 +19,8 @@ const Main = () => {
   const navigate = useNavigate();
   const [lastScrollTop, setLastScrollTop] = useState(0);
   const [linkActive, setLinkActive] = useState({
-    active: false,
-    name: ""
+    active: true,
+    name: "Home"
   });
 
   useEffect(() => {
@@ -26,11 +28,11 @@ const Main = () => {
       const currentScroll =
         window.scrollY || document.documentElement.scrollTop;
       if (currentScroll > lastScrollTop) {
-        document.querySelector("nav").style.bottom = "-20px";
-        document.querySelector('nav').style.opacity='0.5';
+        document.querySelector('header').style.top = '-5px';
+        document.querySelector("nav").style.bottom = "-5px";
       } else {
         document.querySelector("nav").style.bottom = "0";
-        document.querySelector('nav').style.opacity='1';
+        document.querySelector('header').style.top = '0';
       }
       setLastScrollTop(currentScroll <= 0 ? 0 : currentScroll);
     };
@@ -94,58 +96,117 @@ const Main = () => {
         <img src="../images/EchoSync-logo.webp" alt="Logo" />
         <div className="search-bar"></div>
 
-        <div className="nav-link"><BellRing size={25} /></div>
+        <div className="nav-link">
+          <BellRing size={25} style={{padding:'8px'}} onClick={() => setLinkActive({ active: true, name: "Notifications" })}
+            className={`nav-link ${
+              linkActive.active && linkActive.name === "Notifications" && "active"
+            }`}/>
+        </div>
       </header>
 
       <div className="main-content">
-        <button className="logout-btn" onClick={handleLogout}>
-          Log Out
-        </button>
-        {user},{email}
+
+      {linkActive.name==='Home' && (
+        <div>
+        <h2>Welcome, {user}</h2>
+        <p>
+          Development is still in progress. Thanks for showing for interest.
+        </p>
+        </div>
+      )}
+
+      {
+        linkActive.name==='Search' && (
+          <div>
+
+          <h2>Search </h2>
+          <p>This feature is coming soon in upcoming updates.</p>
+          </div>
+        )
+      }
+      {
+        linkActive.name==='Messages' && (
+          <div>
+
+          <h2>Messages </h2>
+          <p>This feature is prior. Next Update is coming about it.</p>
+          </div>
+        )
+      }
+
+      {
+        linkActive.name==='Notifications' && (
+          <div>
+
+          <h2>Notifications </h2>
+          <p>This is the section where all notifications are coming.</p>
+          </div>
+        )
+      }
         
-        <p>dfasl fds as fslfl asdfdsf dsaf sdsdlkkkf dasfdsa fsdfdslnds ;fff ds fl;f; ldsf;</p>
-        <p>dfasl fds as fslfl asdfdsf dsaf sdsdlkkkf dasfdsa fsdfdslnds ;fff ds fl;f; ldsf;</p>
-        <p>dfasl fds as fslfl asdfdsf dsaf sdsdlkkkf dasfdsa fsdfdslnds ;fff ds fl;f; ldsf;</p>
-        <p>dfasl fds as fslfl asdfdsf dsaf sdsdlkkkf dasfdsa fsdfdslnds ;fff ds fl;f; ldsf;</p>
-        <p>dfasl fds as fslfl asdfdsf dsaf sdsdlkkkf dasfdsa fsdfdslnds ;fff ds fdfsafkdf kf adsjkhfsd l;f; ldsf;</p>
-        <p>dfasl fds as fslfl asdfdsf dsaf sdsdlkkkf dasfdsa fsdfdslnds ;fff ds fl;f; ldsf;</p>
-        <p>dfasl fds as fslfl asdfdsf dsaf sdsdlkkkf dasfdsa fsdfdslnds ;fff ds fl;f; ldsf;</p>
-        <p>dfasl fds as fslfl asdfdsf dsaf sdsdlkkkf dasfdsa fsdfdslnds ;fff ds fl;f; ldsf;</p>
-        <p>dfasl fds as fslfl asdfdsf dsaf sdsdlkkkf dasfdsa fsdfdslnds ;fff ds fl;f; ldsf;</p>
-        <p>dfasl fds as fslfl asdfdsf dsaf sdsdlkkkf dasfdsa fsdfdslnds ;fff ds fl;f; ldsf;</p>
-        <p>dfasl fds as fslfl asdfdsf dsaf sdsdlkkkf dasfdsa fsdfdslnds ;fff ds fl;f; ldsf;</p>
-        <p>dfasl fds as fslfl asdfdsf dsaf sdsdlkkkf dasfdsa fsdfdslnds ;fff ds fl;f; ldsf;</p>
-        <p>dfasl fds as fslfl asdfdsf dsaf sdsdlkkkf dasfdsa fsdfdslnds ;fff ds fl;f; ldsf;</p>
-        <p>dfasl fds as fslfl asdfdsf dsaf sdsdlkkkf dasfdsa fsdfdslnds ;fff ds fl;f; ldsf;</p>
-        <p>dfasl fds as fslfl asdfdsf dsaf sdsdlkkkf dasfdsa fsdfdslnds ;fff ds fl;f; ldsf;</p>
-        <p>dfasl fds as fslfl asdfdsf dsaf sdsdlkkkf dasfdsa fsdfdslnds ;fff ds fl;f; ldsf;</p>
-        <p>dfasl fds as fslfl asdfdsf dsaf sdsdlkkkf dasfdsa fsdfdslnds ;fff ds fdfsafkdf kf adsjkhfsd l;f; ldsf;</p>
-        <p>dfasl fds as fslfl asdfdsf dsaf sdsdlkkkf dasfdsa fsdfdslnds ;fff ds fl;f; ldsf;</p>
-        <p>dfasl fds as fslfl asdfdsf dsaf sdsdlkkkf dasfdsa fsdfdslnds ;fff ds fl;f; ldsf;</p>
-        <p>dfasl fds as fslfl asdfdsf dsaf sdsdlkkkf dasfdsa fsdfdslnds ;fff ds fl;f; ldsf;</p>
-        <p>dfasl fds as fslfl asdfdsf dsaf sdsdlkkkf dasfdsa fsdfdslnds ;fff ds fl;f; ldsf;</p>
-        <p>dfasl fds as fslfl asdfdsf dsaf sdsdlkkkf dasfdsa fsdfdslnds ;fff ds fl;f; ldsf;</p>
-        <p>dfasl fds as fslfl asdfdsf dsaf sdsdlkkkf dasfdsa fsdfdslnds ;fff ds fl;f; ldsf;</p>
-        <p>dfasl fds as fslfl asdfdsf dsaf sdsdlkkkf dasfdsa fsdfdslnds ;fff ds fl;f; ldsf;</p>
       </div>
 
       <nav className="main-nav">
         <ul>
-          <li onClick={() => setLinkActive({ active: true, name: "Home" })} className={`nav-link ${linkActive.active && linkActive.name === "Home" && "active"}`}>
-            <Home size={28}/>
+          <li
+            onClick={() => setLinkActive({ active: true, name: "Home" })}
+            className={`nav-link ${
+              linkActive.active && linkActive.name === "Home" && "active"
+            }`}
+          >
+            <Home size={28} />
           </li>
-          <li onClick={() => setLinkActive({ active: true, name: "Search" })} className={`nav-link ${linkActive.active && linkActive.name === "Search" && "active"}`}>
-            <Search size={28}/>
+          <li
+            onClick={() => setLinkActive({ active: true, name: "Search" })}
+            className={`nav-link ${
+              linkActive.active && linkActive.name === "Search" && "active"
+            }`}
+          >
+            <Search size={28} />
           </li>
-          <li onClick={() => setLinkActive({ active: true, name: "MessageSquare" })} className={`nav-link ${linkActive.active && linkActive.name === "MessageSquare" && "active"}`}>
-            <MessageSquare size={28}/>
+          <li
+            onClick={() =>
+              setLinkActive({ active: true, name: "Messages" })
+            }
+            className={`nav-link ${
+              linkActive.active &&
+              linkActive.name === "Messages" &&
+              "active"
+            }`}
+          >
+            <MessageSquare size={28} />
           </li>
-          <li onClick={() => setLinkActive({ active: true, name: "User" })} className={`nav-link ${linkActive.active && linkActive.name === "User" && "active"}`}>
-            <User size={28}/>
+          <li
+            onClick={() => setLinkActive({ active: true, name: "User" })}
+            className={`nav-link ${
+              linkActive.active && linkActive.name === "User" && "active"
+            }`}
+          >
+            <User size={28} />
           </li>
         </ul>
       </nav>
+
+
+      
+
+      
+      {linkActive.name === "User" && (
+              <div className="user-profile">
+                <div className="email-view">
+                  <Mail />{email}
+                </div>
+                <div className="user-view">
+                  <CircleUserIcon /> {user}
+                </div>
+                <button className="logout-btn" onClick={handleLogout}>
+                  Log Out
+                </button>
+              </div>
+            )}
     </div>
+
+    
   );
 };
 
